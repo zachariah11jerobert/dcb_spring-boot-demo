@@ -1,6 +1,7 @@
 package com.jerome.dcbspringbootdemo.controller;
 
 import com.jerome.dcbspringbootdemo.entity.Department;
+import com.jerome.dcbspringbootdemo.error.DepartmentNotFoundException;
 import com.jerome.dcbspringbootdemo.service.DepartmentService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -31,7 +32,7 @@ public class DepartmentController {
     }
 
     @GetMapping("/departments/{id}")
-    public Department fetchDepartmentById(@PathVariable("id") Long departmentId) {
+    public Department fetchDepartmentById(@PathVariable("id") Long departmentId) throws DepartmentNotFoundException {
         LOGGER.info("Inside fetchDepartmentById of DepartmentController");
         return departmentService.fetchDepartmentById(departmentId);
     }

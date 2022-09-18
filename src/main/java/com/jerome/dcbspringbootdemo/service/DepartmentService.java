@@ -1,6 +1,7 @@
 package com.jerome.dcbspringbootdemo.service;
 
 import com.jerome.dcbspringbootdemo.entity.Department;
+import com.jerome.dcbspringbootdemo.error.DepartmentNotFoundException;
 
 import java.util.List;
 
@@ -9,7 +10,7 @@ public interface DepartmentService {
 
     public List<Department> fetchDepartmentList();
 
-    public Department fetchDepartmentById(Long departmentId);
+    public Department fetchDepartmentById(Long departmentId) throws DepartmentNotFoundException;
 
     public void deleteDepartmentById(Long departmentId);
     public Department updateDepartment(Long departmentId, Department department);
